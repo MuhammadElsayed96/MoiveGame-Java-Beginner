@@ -64,4 +64,15 @@ public class Movie {
         }
         return movieSoFar;
     }
+
+    public static boolean checkWon(String movie, char[] movieSoFar) {
+        boolean won = true;
+        for (int i = 0; i < movie.length(); i++) {
+            if (movieSoFar[i] != movie.charAt(i)) {
+                won = false;
+                break;
+            }
+        }
+        return won;
+    }
 }

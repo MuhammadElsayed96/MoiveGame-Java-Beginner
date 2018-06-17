@@ -11,7 +11,7 @@ public class Main {
 
         File moviesFile = new File("movies.txt");
         ArrayList<String> movies = Movie.moviesList(moviesFile);
-        boolean hasGuessed = false;
+        boolean guessedMovie = false;
         int randomMovieIndex = (int) Math.random() * 25 + 1;
         Scanner in = new Scanner(System.in);
 
@@ -24,6 +24,10 @@ public class Main {
 
 
         while (wrongChars.size() <= 10) {
+            if (Movie.checkWon(movie, movieSoFar)) {
+                guessedMovie = true;
+                break;
+            }
             Movie.printMovie(movie, movieLength, movieSoFar);
             System.out.print("You have guessed (" + (wrongGuesses) + ") wrong letters\t");
             for (int i = 0; i < wrongChars.size(); i++) {
@@ -44,7 +48,7 @@ public class Main {
 
         }
 
-        if (hasGuessed)
+        if (guessedMovie)
             System.out.println("You have guessed \'" + movie + "\' correctly.");
         else
             System.out.println("Game over ... You have lost!");
