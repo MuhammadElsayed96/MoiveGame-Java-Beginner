@@ -22,7 +22,6 @@ public class Main {
         List wrongChars = new ArrayList<Character>();
         int wrongGuesses = 0;
 
-
         while (wrongChars.size() <= 10) {
             if (Movie.checkWon(movie, movieSoFar)) {
                 guessedMovie = true;
